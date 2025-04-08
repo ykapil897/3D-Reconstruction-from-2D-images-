@@ -11,6 +11,7 @@ import glob
 from PIL import Image
 import io
 import base64
+import plotly.graph_objects as go
 
 # def check_environment():
 #     env_status = {}
@@ -68,56 +69,98 @@ ROCK_DIR = DATA_DIR / "rock" / "undistorted"
 # Ensure output directory exists
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-def display_point_cloud(ply_path, width=800, height=400):
-    """Display a point cloud from a PLY file using Open3D and a custom HTML viewer."""
+def display_point_cloud(ply_path, width=800, height=600):
+    """Display a point cloud from a PLY file using Plotly."""
     # Check if file exists
     if not os.path.exists(ply_path):
         st.error(f"PLY file not found at {ply_path}")
         return
-        
+    
     try:
-        # Load the point cloud
-        pcd = o3d.io.read_point_cloud(ply_path)
+        # Try to read the point cloud
+        points = None
         
-        # Get point cloud data for custom visualization
-        points = np.asarray(pcd.points)
+        if HAS_O3D:
+            # Use Open3D if available
+            try:
+                pcd = o3d.io.read_point_cloud(ply_path)
+                points = np.asarray(pcd.points)
+            except Exception as e:
+                st.warning(f"Error using Open3D to read PLY: {e}")
+                # Fall back to manual parsing
+                points = None
         
-        # Create a figure
-        fig = plt.figure(figsize=(12, 8))
-        ax = fig.add_subplot(111, projection='3d')
+        # If Open3D failed or isn't available, parse the PLY file manually
+        if points is None:
+            points = []
+            with open(ply_path, 'r') as f:
+                lines = f.readlines()
+                
+            # Skip header
+            header_end = 0
+            for i, line in enumerate(lines):
+                if "end_header" in line:
+                    header_end = i + 1
+                    break
+            
+            # Parse points
+            for i in range(header_end, len(lines)):
+                if lines[i].strip():
+                    parts = lines[i].strip().split()
+                    if len(parts) >= 3:
+                        try:
+                            x, y, z = float(parts[0]), float(parts[1]), float(parts[2])
+                            points.append([x, y, z])
+                        except ValueError:
+                            continue
+            
+            # Convert to numpy array
+            points = np.array(points)
         
-        # Limit to max 10,000 points for performance
-        max_points = min(10000, points.shape[0])
-        indices = np.random.choice(points.shape[0], max_points, replace=False)
-        selected_points = points[indices]
+        if len(points) == 0:
+            st.error("No valid points found in the PLY file")
+            return
         
-        # Color by z-coordinate
-        colors = selected_points[:, 2]
+        # Downsample points for better performance if needed
+        max_points = 25000  # Adjust based on performance
+        if len(points) > max_points:
+            indices = np.random.choice(len(points), max_points, replace=False)
+            points = points[indices]
         
-        # Plot the points
-        scatter = ax.scatter(
-            selected_points[:, 0],
-            selected_points[:, 1],
-            selected_points[:, 2],
-            c=colors,
-            cmap='viridis',
-            s=2,
-            alpha=0.8
+        # Create a Plotly 3D scatter plot
+        fig = go.Figure(data=[go.Scatter3d(
+            x=points[:, 0],
+            y=points[:, 1],
+            z=points[:, 2],
+            mode='markers',
+            marker=dict(
+                size=2,
+                color=points[:, 2],  # Color by Z coordinate
+                colorscale='Viridis',
+                opacity=0.8,
+                colorbar=dict(
+                    title="Z Coordinate",
+                    thickness=20
+                )
+            )
+        )])
+        
+        # Update the layout for better visualization
+        fig.update_layout(
+            title=f"Point Cloud: {os.path.basename(ply_path)}",
+            width=width,
+            height=height,
+            scene=dict(
+                xaxis_title='X',
+                yaxis_title='Y',
+                zaxis_title='Z',
+                aspectmode='data'  # This keeps the aspect ratio true to the data
+            ),
+            margin=dict(l=0, r=0, b=0, t=30)
         )
         
-        # Set labels
-        ax.set_xlabel('X')
-        ax.set_ylabel('Y')
-        ax.set_zlabel('Z')
-        
-        # Add colorbar
-        plt.colorbar(scatter, ax=ax, shrink=0.5, label='Z coordinate')
-        
-        # Set title
-        ax.set_title(f'Point Cloud Visualization: {os.path.basename(ply_path)}')
-        
-        # Display the figure in Streamlit
-        st.pyplot(fig)
+        # Display the interactive 3D plot
+        st.plotly_chart(fig, use_container_width=True)
         
         # Add download button for the PLY file
         with open(ply_path, 'rb') as f:
@@ -132,6 +175,8 @@ def display_point_cloud(ply_path, width=800, height=400):
         
     except Exception as e:
         st.error(f"Error displaying point cloud: {e}")
+        import traceback
+        st.code(traceback.format_exc())
 
 def run_reconstruction(dataset_choice, topology_choice):
     """Run the 3D reconstruction process using Temple.py or temple_icp_merger.py"""
