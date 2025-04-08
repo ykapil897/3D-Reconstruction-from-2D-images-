@@ -12,7 +12,7 @@ from PIL import Image
 import collections
 import argparse
 import sys
-from utils import *
+# from utils import *
 import open3d as o3d
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
