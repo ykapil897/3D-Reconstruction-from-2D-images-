@@ -3,8 +3,6 @@ from load_camera_info_temple import load_all_camera_parameters_temple, load_all_
 from load_ply import save_ply
 import numpy as np
 from pathlib import Path
-# from IPython.display import display
-# import inspect
 import cv2
 import matplotlib
 matplotlib.use('Agg')  # Use a non-interactive backend for matplotlib
@@ -12,13 +10,12 @@ matplotlib.use('Agg')  # Use a non-interactive backend for matplotlib
 import os
 from PIL import Image
 import collections
+import argparse
+import sys
 from utils import *
-# import glob
-# from pyntcloud import PyntCloud
 import open3d as o3d
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
-# from ipywidgets import interact, interactive, fixed
 
 def compute_disparity(image, img_pair, num_disparities=6*16, block_size=11, window_size=6, uniqueness_ratio=0, speckleWindowSize=200, matcher="stereo_sgbm", show_disparity=True):
     if matcher == "stereo_bm":
@@ -32,7 +29,7 @@ def compute_disparity(image, img_pair, num_disparities=6*16, block_size=11, wind
                                          uniquenessRatio=uniqueness_ratio, speckleWindowSize=speckleWindowSize, speckleRange=2, disp12MaxDiff=1,
                                          P1=8 * 1 * window_size **2, P2=32 * 1 * window_size **2)
 
-    new_image = new_image.compute(image, img_pair).astype(numpy.float32) / 16
+    new_image = new_image.compute(image, img_pair).astype(np.float32) / 16
 
     if (show_disparity == True):
         plt.figure(figsize=(20, 10))
@@ -87,61 +84,77 @@ def get_disparity_temple(options):
     return matcher
 
 class OpenCVStereoMatcher():
-    global FinalOptions, folder_path
-    def __init__(self, options=None, calibration_path=None):
-            """
-            This class initializes an OpenCV stereo matcher for multi-camera stereo vision using provided options and calibration data.
+    def __init__(self, options=None, calibration_path=None, dataset_type='temple'):
+        """
+        This class initializes an OpenCV stereo matcher for multi-camera stereo vision using provided options and calibration data.
 
-            Parameters:
-            - options: A dictionary containing various options for stereo matching and rectification (default is FinalOptions).
-            - calibration_path: The path to the calibration data containing camera parameters (optional).
+        Parameters:
+        - options: A dictionary containing various options for stereo matching and rectification.
+        - calibration_path: The path to the calibration data containing camera parameters (optional).
+        - dataset_type: The type of dataset ('temple' or 'dino'). Defaults to 'temple'.
+        """
+        self.options = options
+        self.calibration_path = calibration_path
+        self.dataset_type = dataset_type
+        self.num_cameras = options['CameraArray']['num_cameras']
+        self.topology = options['CameraArray']['topology']
+        self.output_folder = None  # Initialize with None, can be set later
+        
+        # Load camera parameters based on dataset type
+        if dataset_type.lower() == 'temple':
+            self.all_camera_parameters = load_all_camera_parameters_temple(calibration_path)
+        else:  # dino or other datasets
+            self.all_camera_parameters = load_all_camera_parameters_dino(calibration_path)
 
-            Initialization Steps:
-            1. Load all camera parameters from the calibration data (if provided).
-            2. Initialize arrays to store stereo calibration results, rectification maps, and disparity-to-depth mapping matrices (Q) for each camera pair.
-            3. Loop through each camera pair based on the specified topology and perform the following steps:
-                a. Get camera intrinsic and extrinsic parameters for the left and right cameras.
-                b. Perform stereo calibration and rectification to obtain Q, extrinsics_left_rectified_to_global, left_maps, and right_maps.
-                c. Get the stereo matcher based on the provided options.
-            """
-            self.options = options if options is not None else FinalOptions
-            self.calibration_path = folder_path
-            self.num_cameras = options['CameraArray']['num_cameras']
-            self.topology = options['CameraArray']['topology']
-            self.all_camera_parameters = load_all_camera_parameters_dino(folder_path)
+        self.left_maps_array = []
+        self.right_maps_array = []
+        self.Q_array = []
+        self.extrinsics_left_rectified_to_global_array = []
 
-            self.left_maps_array = []
-            self.right_maps_array = []
-            self.Q_array = []
-            self.extrinsics_left_rectified_to_global_array = []
+        for pair_index, (left_index, right_index) in enumerate(self.get_topology_pairs()):
+            # 1 — Get R, T, W, H for each camera
+            left_K, left_R, left_T, left_width, left_height = [self.all_camera_parameters[left_index][key] for key
+                                                                in ('camera_matrix', 'R', 'T', 'image_width',
+                                                                    'image_height')]
+            right_K, right_R, right_T, right_width, right_height = [self.all_camera_parameters[right_index][key] for
+                                                                    key in (
+                                                                    'camera_matrix', 'R', 'T', 'image_width',
+                                                                    'image_height')]
+            h, w = left_height, left_width
 
-            for pair_index, (left_index, right_index) in enumerate(topologies[self.topology]):
-                # 1 — Get R, T, W, H for each camera
-                left_K, left_R, left_T, left_width, left_height = [self.all_camera_parameters[left_index][key] for key
-                                                                   in ('camera_matrix', 'R', 'T', 'image_width',
-                                                                       'image_height')]
-                right_K, right_R, right_T, right_width, right_height = [self.all_camera_parameters[right_index][key] for
-                                                                        key in (
-                                                                        'camera_matrix', 'R', 'T', 'image_width',
-                                                                        'image_height')]
-                h, w = left_height, left_width
+            # 2 — Stereo Calibrate & Rectify
+            Q, extrinsics_left_rectified_to_global, left_maps, right_maps = calibrate_and_rectify(options, left_K,
+                                                                                                  right_K,
+                                                                                                  left_R, right_R,
+                                                                                                  left_T, right_T)
+            self.Q_array.append(Q)
+            self.extrinsics_left_rectified_to_global_array.append(extrinsics_left_rectified_to_global)
+            self.left_maps_array.append(left_maps)
+            self.right_maps_array.append(right_maps)
 
-                # 2 — Stereo Calibrate & Rectify
-                Q, extrinsics_left_rectified_to_global, left_maps, right_maps = calibrate_and_rectify(options, left_K,
-                                                                                                      right_K,
-                                                                                                      left_R, right_R,
-                                                                                                      left_T, right_T)
-                self.Q_array.append(Q)
-                self.extrinsics_left_rectified_to_global_array.append(extrinsics_left_rectified_to_global)
-                self.left_maps_array.append(left_maps)
-                self.right_maps_array.append(right_maps)
+            # 3 — Get Matcher
+            self.matcher = get_disparity_temple(options)
 
-                # 3 — Get Matcher
-                self.matcher = get_disparity_temple(options)
+    def get_topology_pairs(self):
+        """Get camera pairs based on the specified topology."""
+        # Define all available topologies
+        topologies = collections.OrderedDict()
+        topologies['360'] = tuple(zip((0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11),
+                                      (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0)))
+        topologies['overlapping'] = tuple(zip((0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+                                              (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)))
+        topologies['adjacent'] = tuple(zip((0, 2, 4, 6, 8, 10),
+                                           (1, 3, 5, 7, 9, 11)))
+        topologies['skipping_1'] = tuple(zip((0, 3, 6, 9),
+                                             (1, 4, 7, 10)))
+        topologies['skipping_2'] = tuple(zip((0, 4, 8),
+                                             (1, 5, 9)))
+                                             
+        return topologies[self.topology]
 
     def load_images(self, folder_path):
         """
-        Load temple images based on the names in camera parameters.
+        Load images based on the names in camera parameters.
         
         Args:
             folder_path (Path): Path to the directory containing images.
@@ -167,18 +180,22 @@ class OpenCVStereoMatcher():
         images = []
         for i in range(self.num_cameras):
             # Try to match the image name from camera parameters
-            expected_name = self.all_camera_parameters[i]['name']
-            image_path = imagesPath / expected_name
+            if i < len(self.all_camera_parameters):
+                expected_name = self.all_camera_parameters[i]['name']
+                image_path = imagesPath / expected_name
+            else:
+                expected_name = f"image_{i:02d}.png"
+                image_path = None
             
             # If file not found by name, use position
-            if not image_path.exists() and i < len(image_files):
+            if (image_path is None or not image_path.exists()) and i < len(image_files):
                 image_path = image_files[i]
                 print(f"Using {image_path.name} for camera {i} (expected {expected_name})")
             
             print(f"Loading image {image_path}")
             
             # Load and convert image
-            if image_path.exists():
+            if image_path is not None and image_path.exists():
                 colorImage = cv2.imread(str(image_path))
                 if colorImage is None:
                     print(f"Warning: Failed to load {image_path}")
@@ -199,11 +216,13 @@ class OpenCVStereoMatcher():
         self.images = images
 
     def run(self):
+        """Process all camera pairs and return the combined 3D points."""
         # Check if camera parameters have been loaded
         assert self.all_camera_parameters is not None, 'Camera parameters not loaded yet; You should run load_all_camera_parameters first!'
 
         # Create an array to store the 3D points for each pair of images
-        xyz_global_array = [None] * len(topologies[self.topology])
+        topology_pairs = self.get_topology_pairs()
+        xyz_global_array = [None] * len(topology_pairs)
 
         def run_pair(pair_idx, left_idx, right_idx):
             # Load the proper images and rectification maps
@@ -240,16 +259,28 @@ class OpenCVStereoMatcher():
                 pair_idx]
             xyz_global = np.dot(xyz_filtered, R_left_rectified_to_global.T) + T_left_rectified_to_global.T
 
-            # Save PLY file for the pair of images
-            #save_ply(xyz_global, 'pair_' + str(left_index) + '_' + str(right_index) + '.ply', output_folder)
-            xyz_global_array[pair_index] = xyz_global
+            # Save this pair's point cloud to the array
+            xyz_global_array[pair_idx] = xyz_global
+            
+            # If output folder is set, save individual pair point cloud
+            if self.output_folder:
+                pair_filename = f"{self.dataset_type}_pair_{left_idx}_{right_idx}"
+                save_ply(xyz_global, pair_filename, self.output_folder)
+                print(f"Saved point cloud for pair {left_idx}-{right_idx}")
 
         # Process each pair of images
-        for pair_index, (left_index, right_index) in enumerate(topologies[self.topology]):
+        for pair_index, (left_index, right_index) in enumerate(topology_pairs):
+            print(f"Processing stereo pair {pair_index+1}/{len(topology_pairs)}: images {left_index} and {right_index}")
             run_pair(pair_index, left_index, right_index)
 
         # Stack all the 3D points from different pairs into one array
-        xyz = np.vstack(xyz_global_array)
+        # Filter out None values (in case some pairs failed)
+        valid_clouds = [cloud for cloud in xyz_global_array if cloud is not None]
+        if not valid_clouds:
+            print("Warning: No valid point clouds were generated!")
+            return np.zeros((0, 3))  # Return empty array
+            
+        xyz = np.vstack(valid_clouds)
         return xyz
 
 
@@ -265,7 +296,6 @@ def rectify_and_show_results(opencv_matcher, image_index=0, show_image=True, out
     Returns:
         tuple: A tuple containing the rectified left and right images.
     """
-
     # Get the Images
     img0 = opencv_matcher.images[image_index]
     img1 = opencv_matcher.images[image_index + 1]
@@ -282,11 +312,11 @@ def rectify_and_show_results(opencv_matcher, image_index=0, show_image=True, out
     if show_image:
         # Show Results
         f, (f0, f1, f2) = plt.subplots(1, 3, figsize=(20, 10))
-        f0.imshow(img0)
+        f0.imshow(img0, cmap='gray')
         f0.set_title('Original Left Image')
-        f1.imshow(left_maps[1])
+        f1.imshow(left_maps[1], cmap='gray')
         f1.set_title('Left Disparity Map')
-        f2.imshow(left_image_rectified)
+        f2.imshow(left_image_rectified, cmap='gray')
         f2.set_title('Rectified Left Image')
         
         if output_folder:
@@ -295,11 +325,11 @@ def rectify_and_show_results(opencv_matcher, image_index=0, show_image=True, out
             plt.savefig('rectification_left.png', dpi=300)
 
         f, (f3, f4, f5) = plt.subplots(1, 3, figsize=(20, 10))
-        f3.imshow(img1)
+        f3.imshow(img1, cmap='gray')
         f3.set_title('Original Right Image')
-        f4.imshow(right_maps[1])
+        f4.imshow(right_maps[1], cmap='gray')
         f4.set_title('Right Disparity Map')
-        f5.imshow(right_image_rectified)
+        f5.imshow(right_image_rectified, cmap='gray')
         f5.set_title('Rectified Right Image')
         
         if output_folder:
@@ -311,18 +341,18 @@ def rectify_and_show_results(opencv_matcher, image_index=0, show_image=True, out
 
 
 
-def compute_and_show_disparity(opencv_matcher, left_image_rectified, right_image_rectified, show_image=True):
+def compute_and_show_disparity(opencv_matcher, left_image_rectified, right_image_rectified, show_image=True, output_folder=None):
     """Computes the disparity map from rectified left and right images using the stereo matcher and displays it.
 
     Args:
         left_image_rectified (numpy.ndarray): The rectified left image.
         right_image_rectified (numpy.ndarray): The rectified right image.
         show_image (bool, optional): Whether to display the disparity map or not. Defaults to True.
+        output_folder (str, optional): Directory to save disparity map visualization.
 
     Returns:
         numpy.ndarray: The computed disparity map.
     """
-
     # Compute disparity
     matcher = opencv_matcher.matcher
     disparity_img = matcher.compute(left_image_rectified, right_image_rectified)
@@ -333,16 +363,20 @@ def compute_and_show_disparity(opencv_matcher, left_image_rectified, right_image
 
     if show_image:
         # Show Results
-        plt.imshow(disparity_img)
+        plt.figure(figsize=(15, 10))
+        plt.imshow(disparity_img, cmap='jet')
         plt.title('Disparity Map')
         plt.colorbar()  # Add colorbar to show the disparity values
-        plt.show()
-        # plt.savefig('disparity_map.png', dpi=300, bbox_inches='tight')
+        
+        if output_folder:
+            plt.savefig(os.path.join(output_folder, 'disparity_map.png'), dpi=300, bbox_inches='tight')
+        else:
+            plt.savefig('disparity_map.png', dpi=300, bbox_inches='tight')
 
     return disparity_img
 
 
-def reproject_and_save_ply(disparity_img, opencv_matcher, index, output_folder):
+def reproject_and_save_ply(disparity_img, opencv_matcher, index, output_folder, prefix=None):
     """Reprojects the 3D points from disparity image, transforms them into global coordinates, and saves as a PLY file.
 
     Args:
@@ -350,10 +384,13 @@ def reproject_and_save_ply(disparity_img, opencv_matcher, index, output_folder):
         opencv_matcher (OpenCVStereoMatcher): The OpenCVStereoMatcher instance containing calibration parameters.
         index (int): The index of the stereo pair to process.
         output_folder (str): The folder path where the PLY file should be saved.
+        prefix (str, optional): Prefix for the output filename. Defaults to None.
 
     Returns:
         str: The file path of the saved PLY file.
     """
+    # Create output directory if it doesn't exist
+    os.makedirs(output_folder, exist_ok=True)
 
     # Get Q-matrix
     Q = opencv_matcher.Q_array[index]
@@ -372,11 +409,18 @@ def reproject_and_save_ply(disparity_img, opencv_matcher, index, output_folder):
     R_left_rectified_to_global, T_left_rectified_to_global = opencv_matcher.extrinsics_left_rectified_to_global_array[index]
     xyz_global = np.dot(xyz_filtered, R_left_rectified_to_global.T) + T_left_rectified_to_global.T
 
+    # Get the camera indices from the topology
+    topology_pairs = opencv_matcher.get_topology_pairs()
+    left_idx, right_idx = topology_pairs[index]
+    
     # Save PLY
-    filename = "temple_0"
+    if prefix is None:
+        prefix = opencv_matcher.dataset_type
+        
+    filename = f"{prefix}_{left_idx}"
     output_file_path = os.path.join(output_folder, filename + '.ply')
     save_ply(xyz_global, filename, output_folder)
-    print("Saving: ", filename)
+    print(f"Saving point cloud for stereo pair {left_idx}-{right_idx} to: {filename}")
 
     return output_file_path
 
@@ -462,57 +506,55 @@ def calibrate_and_rectify(options, left_K, right_K, left_R, right_R, left_T, rig
     
     return Q, extrinsics_left_rectified_to_global, left_maps, right_maps
 
-def visualization_draw_geometry(geometry, headless=False):
+def visualization_draw_geometry(geometry, headless=False, output_path=None):
     """
     Visualize a 3D geometry using Open3D.
     
     Args:
         geometry: Open3D geometry object to visualize.
         headless: Whether to run in headless mode (no GUI)
+        output_path: Path to save screenshot if in headless mode
     """
-
-    if headless or geometry is None:
-        print("Skipping visualization (headless mode or empty geometry)")
+    if geometry is None:
+        print("Skipping visualization (empty geometry)")
         return
 
-    try:
-        # Create a visualization window
-        vis = o3d.visualization.Visualizer()
-        success = vis.create_window()
-        if not success:
-            print("Failed to create visualization window. Running in headless mode.")
-            return
-            
-        # Add the geometry to the visualization
-        vis.add_geometry(geometry)
-        
-        # Set rendering options
-        opt = vis.get_render_option()
-        if opt is not None:
-            opt.background_color = np.asarray([0.5, 0.5, 0.5])  # Gray background
-            opt.point_size = 1.0
-        
-        # Update the view
-        vis.update_geometry(geometry)
-        vis.poll_events()
-        vis.update_renderer()
-        
-        # Run the visualization
-        vis.run()
-        vis.destroy_window()
-    except Exception as e:
-        print(f"Visualization error: {e}")
-        print("Saving screenshot instead...")
+    if headless:
         try:
-            # Save an image of the point cloud as an alternative
-            output_dir = os.path.join(os.path.dirname(os.path.dirname(os.getcwd())), 
-                                     '3D-Reconstruction-with-Uncalibrated-Stereo-main', 'Data', 'Output')
-            os.makedirs(output_dir, exist_ok=True)
-            image_path = os.path.join(output_dir, "temple_pointcloud.png")
-            o3d.io.write_point_cloud(os.path.join(output_dir, "temple_pointcloud.ply"), geometry)
-            print(f"Saved point cloud to {os.path.join(output_dir, 'temple_pointcloud.ply')}")
-        except Exception as e2:
-            print(f"Failed to save point cloud: {e2}")
+            # Create a visualization window in headless mode
+            vis = o3d.visualization.Visualizer()
+            vis.create_window(visible=False)
+            vis.add_geometry(geometry)
+            
+            # Set rendering options
+            opt = vis.get_render_option()
+            if opt is not None:
+                opt.background_color = np.asarray([0.5, 0.5, 0.5])  # Gray background
+                opt.point_size = 1.0
+            
+            # Update the view
+            vis.update_geometry(geometry)
+            vis.poll_events()
+            vis.update_renderer()
+            
+            # Save screenshot if path is provided
+            if output_path:
+                vis.capture_screen_image(output_path)
+                print(f"Saved visualization screenshot to: {output_path}")
+                
+            vis.destroy_window()
+            
+        except Exception as e:
+            print(f"Headless visualization error: {e}")
+            
+    else:
+        try:
+            # Regular visualization with GUI
+            o3d.visualization.draw_geometries([geometry])
+        except Exception as e:
+            print(f"Visualization error: {e}")
+            print("Trying headless mode instead...")
+            visualization_draw_geometry(geometry, headless=True, output_path=output_path)
 
 def save_point_cloud_multiview(points, output_folder):
     """
@@ -584,102 +626,92 @@ def save_point_cloud_multiview(points, output_folder):
         plt.savefig(output_path, bbox_inches='tight')
         plt.close(fig)
         print(f"Saved point cloud {view_names[i]} view to: {output_path}")
+
+def main():
+    """Main function for running the 3D reconstruction pipeline."""
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(description='3D Reconstruction from Stereo Images')
+    parser.add_argument('--input_dir', type=str, required=True, help='Directory containing input images')
+    parser.add_argument('--output_dir', type=str, required=True, help='Directory to save output files')
+    parser.add_argument('--dataset_type', type=str, default='temple', choices=['temple', 'dino'], 
+                        help='Type of dataset (temple or dino)')
+    parser.add_argument('--topology', type=str, default='skipping_2', 
+                        choices=['360', 'overlapping', 'adjacent', 'skipping_1', 'skipping_2'],
+                        help='Camera topology to use')
+    parser.add_argument('--rotate_images', action='store_true', help='Rotate input images 90 degrees anticlockwise')
+    parser.add_argument('--visualize', action='store_true', help='Visualize 3D point cloud (may not work in headless env)')
+    parser.add_argument('--skip_disparity', action='store_true', help='Skip disparity map visualization')
+    parser.add_argument('--skip_rectification', action='store_true', help='Skip rectification visualization')
+    args = parser.parse_args()
     
-if __name__ == '__main__':
-
-    # Get the current directory
-    current_directory = os.getcwd()
-
-    # Go back to the parent directory
-    parent_directory = os.path.dirname(current_directory)
-
-    # Set input directory
-    rock_folder = os.path.join(parent_directory, '3D-Reconstruction-with-Uncalibrated-Stereo-main', 'Data', 'rock', 'undistorted')
-    temple_folder = os.path.join(parent_directory, '3D-Reconstruction-with-Uncalibrated-Stereo-main', 'Data', 'temple', 'undistorted')
-    output_folder = os.path.join(parent_directory, '3D-Reconstruction-with-Uncalibrated-Stereo-main', 'Data', 'Output_dino')
-
-    # # Call the function to rotate images in the temple_folder
-    # rotate_images_anticlockwise(temple_folder)
-
-
-    # Choose index of image
-    index = 0
-
-    # Choose folder
-    input_folder = rock_folder
-
+    # Create output directory if it doesn't exist
+    os.makedirs(args.output_dir, exist_ok=True)
+    print(f"Output will be saved to: {args.output_dir}")
+    
+    # Set input directory and check if it exists
+    input_folder = Path(args.input_dir)
+    if not input_folder.exists():
+        print(f"Error: Input directory {args.input_dir} does not exist.")
+        return 1
+    
     # Folder path
-    folder_path = Path(input_folder)
-
-    # Get a list of all files in the rock_folder directory
-    all_files = os.listdir(input_folder)
-
+    folder_path = input_folder
+    
+    # Get a list of all files in the input directory
+    all_files = os.listdir(args.input_dir)
+    
     # Filter only the image files (e.g., PNG or JPG)
     image_files = [file for file in all_files if file.lower().endswith(('.png', '.jpg', '.jpeg'))]
-
-    # Create a list of image paths by joining the filenames with the rock_folder path
-    images = [os.path.join(input_folder, image_file) for image_file in image_files]
-
-    # Call the function to read, rotate, and convert the images
+    
+    if not image_files:
+        print(f"Error: No image files found in {args.input_dir}")
+        return 1
+        
+    print(f"Found {len(image_files)} images in {args.input_dir}")
+    
+    # Rotate images if requested
+    if args.rotate_images:
+        print("Rotating images anticlockwise...")
+        rotate_images_anticlockwise(args.input_dir)
+    
+    # Create a list of image paths
+    images = [os.path.join(args.input_dir, image_file) for image_file in image_files]
+    
+    # Read images
+    print("Reading images...")
     images_cv = read_and_rotate_images(images)
-
+    
+    if not images_cv:
+        print("Error: Failed to load images.")
+        return 1
+    
     # Get parameters of image
-    h, w, d = images_cv[index].shape
-    print(h, w, d)
-
-    ### -------------------- TOPOLOGIES ---------------------------- ###
-
-    topologies = collections.OrderedDict()
-    topologies['360'] = tuple(zip((0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11),
-                                  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0)))
-
-    topologies['overlapping'] = tuple(zip((0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
-                                          (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)))
-
-    topologies['adjacent'] = tuple(zip((0, 2, 4, 6, 8, 10),
-                                       (1, 3, 5, 7, 9, 11)))
-    topologies['skipping_1'] = tuple(zip((0, 3, 6, 9),
-                                         (1, 4, 7, 10)))
-    topologies['skipping_2'] = tuple(zip((0, 4, 8),
-                                         (1, 5, 9)))
-
-
-
-
-
-    ### -------------------- CAMERA CALIOBRATION AND RECTIFICATION ---------------------------- ###
-
+    h, w, d = images_cv[0].shape
+    print(f"Image dimensions: {h}x{w}x{d}")
+    
+    # Set up stereo matching options
+    print("Setting up stereo matching options...")
+    
     # StereoRectifyOptions
     StereoRectifyOptions = {
         'imageSize': (w, h),
-        # Specifies the desired size of the rectified stereo images. 'w' and 'h' are width and height, respectively.
         'flags': (0, cv2.CALIB_ZERO_DISPARITY)[0],
-        # Flag for stereo rectification. 0: Disparity map is not modified. cv2.CALIB_ZERO_DISPARITY: Zero disparity at all pixels.
-        'newImageSize': (w, h),  # Size of the output rectified images after the rectification process.
+        'newImageSize': (w, h),
         'alpha': 0.5
-        # Balance between preserving all pixels (alpha = 0.0) and completely rectifying the images (alpha = 1.0).
     }
-
+    
     # RemapOptions
     RemapOptions = {
         'interpolation': cv2.INTER_LINEAR
-        # Interpolation method used during the remapping process. Bilinear interpolation for smoother results.
     }
-
+    
     # CameraArrayOptions
     CameraArrayOptions = {
         'channels': 3,
-        # Number of color channels in the camera images. 1 for grayscale images, 3 for RGB color channels.
-        'num_cameras': 12,  # Total number of cameras in the camera array.
-        'topology': 'skipping_2'
-        # Spatial arrangement or topology of the camera array ('adjacent', 'circular', 'linear', 'grid', etc.).
+        'num_cameras': len(images_cv),
+        'topology': args.topology
     }
-
-
-
-
-    ### -------------------- DISPARITY ESTIMATION ---------------------------- ###
-
+    
     # StereoMatcherOptions
     StereoMatcherOptions = {
         'MinDisparity': 0,
@@ -691,93 +723,96 @@ if __name__ == '__main__':
         'SpeckleWindowSize': 50,
         'SpeckleRange': 1
     }
-
+    
     # StereoSGBMOptions
     StereoSGBMOptions = {
         'PreFilterCap': 0,
         'UniquenessRatio': 0,
-        'P1': 8,  # "Depth Change Cost
-        'P2': 32,  # "Depth Step Cost
+        'P1': 8,
+        'P2': 32,
     }
-
+    
     # FinalOptions
     FinalOptions = {
-        'StereoRectify': StereoRectifyOptions,  # Options for stereo rectification.
-        'StereoMatcher': StereoMatcherOptions,  # Options for the stereo matcher (either StereoBM or StereoSGBM).
-        'StereoSGBM': StereoSGBMOptions,  # Options for StereoBM (set to StereoSGBMOptions if needed).
-        'CameraArray': CameraArrayOptions,  # Options for the camera array configuration.
-        'Remap': RemapOptions  # Options for remapping.
+        'StereoRectify': StereoRectifyOptions,
+        'StereoMatcher': StereoMatcherOptions,
+        'StereoSGBM': StereoSGBMOptions,
+        'CameraArray': CameraArrayOptions,
+        'Remap': RemapOptions
     }
-
-    # Initialize Class
-    opencv_matcher = OpenCVStereoMatcher(options=FinalOptions, calibration_path=folder_path)
-
+    
+    # Initialize OpenCVStereoMatcher
+    print("Initializing stereo matcher...")
+    opencv_matcher = OpenCVStereoMatcher(
+        options=FinalOptions, 
+        calibration_path=folder_path,
+        dataset_type=args.dataset_type
+    )
+    
+    # Set output folder for the matcher
+    opencv_matcher.output_folder = args.output_dir
+    
     # Print Q-matrix to check
+    print("Q-matrix for first stereo pair:")
     print(opencv_matcher.Q_array[0])
-
-    # Load images
-    opencv_matcher.load_images(folder_path)
-
-    # Check images
-    plt.imshow(opencv_matcher.images[index])
-    plt.show()
-
+    
+    # Set images in the matcher
+    opencv_matcher.images = [cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) for img in images_cv]
+    
+    # Choose index of first image pair
+    index = 0
+    
     # 1. Rectification
     print("\nRectification")
-    left_image_rectified, right_image_rectified = rectify_and_show_results(opencv_matcher, image_index=index, show_image=False, output_folder=output_folder)
-
+    left_image_rectified, right_image_rectified = rectify_and_show_results(
+        opencv_matcher, 
+        image_index=index, 
+        show_image=not args.skip_rectification,
+        output_folder=args.output_dir
+    )
+    
     # 2. Disparity
     print("\nDisparity")
-    disparity_img = compute_and_show_disparity(opencv_matcher, left_image_rectified, right_image_rectified)
-    plt.savefig(os.path.join(output_folder, 'disparity_map.png'), dpi=300, bbox_inches='tight')
-
-
-    # num_d = (0, 512, 16)
-    # b_s = (1, 31, 2)
-    # window_s = (1, 13, 2)
-    # uniqueness_r = (0, 10, 1)
-    # speckle_w = (0, 250, 50)
-    #
-    # # Replace the display() function with plt.show()
-    # disparity_left = interactive(compute_disparity, image=fixed(left_image_rectified),
-    #                              img_pair=fixed(right_image_rectified), num_disparities=num_d, block_size=b_s,
-    #                              window_size=window_s, matcher=["stereo_sgbm", "stereo_bm"],
-    #                              uniqueness_ratio=uniqueness_r, speckleWindowSize=speckle_w)
-    # plt.show()  # Instead of display(disparity_left)
-
+    disparity_img = compute_and_show_disparity(
+        opencv_matcher, 
+        left_image_rectified, 
+        right_image_rectified, 
+        show_image=not args.skip_disparity,
+        output_folder=args.output_dir
+    )
+    
     # 3. Project to 3D
     print("\nProject to 3D")
-    output_file_path = reproject_and_save_ply(disparity_img, opencv_matcher, index, output_folder)
-
-    # 4. Visualize 3D image
-    # print("\nVisualize 3D image")
-    # object_3d = PyntCloud.from_file(output_file_path)
-    # object_3d.plot()
-
-    # 5. Run in all images
+    output_file_path = reproject_and_save_ply(
+        disparity_img, 
+        opencv_matcher, 
+        index, 
+        args.output_dir, 
+        prefix=args.dataset_type
+    )
+    
+    # 4. Run on all image pairs
+    print("\nProcessing all stereo pairs...")
     xyz = opencv_matcher.run()
-    save_ply(xyz, "dino_skipping_2", output_folder)
-    output_file_path = os.path.join(parent_directory, '3D-Reconstruction-with-Uncalibrated-Stereo-main', 'Data', 'Output_dino', 'dino_skipping_2.ply')
-    print("Saving: ", output_file_path)
-    # # object_3d = PyntCloud.from_file(output_file_path)
-    # # object_3d.plot()
-
-    # # Load the PLY file
-    # pcd = o3d.io.read_point_cloud(output_file_path)
-
-    # # Visualize the point cloud
-    # visualization_draw_geometry(pcd)
-
-    # After saving the PLY file:
-    print(f"Saving point cloud images to {output_folder}")
-    try:
-        # This might work in some environments:
-        pcd = o3d.io.read_point_cloud(output_file_path)
-        visualization_draw_geometry(pcd, headless=True)
-    except Exception as e:
-        print(f"Open3D visualization failed: {e}")
-
-    # Always save the point cloud visualizations using matplotlib as a backup
+    
+    # 5. Save combined point cloud
+    combined_filename = f"{args.dataset_type}_{args.topology}"
+    output_file_path = os.path.join(args.output_dir, f"{combined_filename}.ply")
+    save_ply(xyz, combined_filename, args.output_dir)
+    print(f"Saved combined point cloud to: {output_file_path}")
+    
+    # 6. Visualize point cloud
+    if args.visualize:
+        print("\nVisualizing point cloud...")
+        try:
+            pcd = o3d.io.read_point_cloud(output_file_path)
+            vis_output_path = os.path.join(args.output_dir, "visualization.png")
+            visualization_draw_geometry(pcd, headless=True, output_path=vis_output_path)
+        except Exception as e:
+            print(f"Visualization failed: {e}")
+    
+    # 7. Save point cloud visualizations
+    print(f"\nSaving point cloud images to {args.output_dir}")
     try:
         # Load the saved point cloud
         with open(output_file_path, 'r') as f:
@@ -791,16 +826,23 @@ if __name__ == '__main__':
                 break
                 
         points_data = []
-        for i in range(header_end, len(lines)):
+        for i in range(header_end, min(len(lines), header_end + 1000000)):  # Limit to prevent memory issues
             if lines[i].strip():
                 coords = lines[i].strip().split()
-                points_data.append([float(coords[0]), float(coords[1]), float(coords[2])])
+                if len(coords) >= 3:
+                    points_data.append([float(coords[0]), float(coords[1]), float(coords[2])])
                 
-        points = np.array(points_data)
-        
-        # Save multi-view visualizations
-        save_point_cloud_multiview(points, output_folder)
+        if points_data:
+            points = np.array(points_data)
+            # Save multi-view visualizations
+            save_point_cloud_multiview(points, args.output_dir)
+        else:
+            print("No valid points found in the PLY file")
     except Exception as e:
         print(f"Failed to save point cloud visualizations: {e}")
+    
+    print("\nProcessing completed successfully!")
+    return 0
 
-
+if __name__ == '__main__':
+    sys.exit(main())

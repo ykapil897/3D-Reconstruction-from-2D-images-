@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Reconstruction with Uncalibrated Stereo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .header-bg {
+            background-color: #f5f5f5;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        .result-img {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s;
+        }
+        .result-img:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bg">
+        <div class="container">
+            <h1 class="display-4">3D Reconstruction with Uncalibrated Stereo</h1>
+            <p class="lead">A computer vision project for 3D reconstruction from uncalibrated stereo images.</p>
+            <a href="https://github.com/yourusername/3D-Reconstruction-with-Uncalibrated-Stereo" class="btn btn-primary">View on GitHub</a>
+            <a href="#results" class="btn btn-outline-secondary ms-2">See Results</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <h2>Problem Statement</h2>
+                <p>As a drone delivery company, we face challenges in efficiently navigating urban environments with complex structures and obstacles. Traditional 2D mapping techniques may not provide sufficient situational awareness, hindering safe and precise delivery operations.</p>
+                <p>Our 3D reconstruction solution accurately models the environment, enabling drones to plan optimal flight paths, detect obstacles, and ensure reliable deliveries in densely populated areas.</p>
+            </div>
+            <div class="col-md-6">
+                <h2>Our Approach</h2>
+                <ol>
+                    <li><strong>Image Acquisition</strong>: Capture multi-view images around an object</li>
+                    <li><strong>Stereo Rectification</strong>: Align image pairs for correspondence</li>
+                    <li><strong>Disparity Map Calculation</strong>: Compute pixel-wise disparities</li>
+                    <li><strong>3D Reprojection</strong>: Convert 2D disparities to 3D points</li>
+                    <li><strong>Point Cloud Alignment</strong>: Merge point clouds using ICP</li>
+                    <li><strong>Surface Reconstruction</strong>: Create a 3D mesh</li>
+                </ol>
+            </div>
+        </div>
+
+        <h2 id="results" class="mb-4">Results</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <img src="images/disparity_map.png" class="img-fluid result-img rounded" alt="Disparity Map">
+                <h4>Disparity Map</h4>
+                <p>Pixel-wise disparity values between stereo image pairs.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="images/pointcloud_perspective.png" class="img-fluid result-img rounded" alt="Point Cloud">
+                <h4>Point Cloud</h4>
+                <p>3D point cloud generated from multiple stereo pairs.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="images/pointcloud_front.png" class="img-fluid result-img rounded" alt="Mesh">
+                <h4>Point Cloud (Front View)</h4>
+                <p>Front view of the reconstructed 3D model.</p>
+            </div>
+        </div>
+
+        <h2 class="mt-5 mb-4">Technical Implementation</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Key Features</h3>
+                <ul>
+                    <li>Uncalibrated multi-view stereo reconstruction</li>
+                    <li>Iterative Closest Point (ICP) alignment</li>
+                    <li>Adaptive Semi-Global Block Matching</li>
+                    <li>Point cloud filtering and optimization</li>
+                    <li>Interactive web interface with Streamlit</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Technologies Used</h3>
+                <ul>
+                    <li>Python</li>
+                    <li>OpenCV</li>
+                    <li>Open3D</li>
+                    <li>NumPy</li>
+                    <li>Matplotlib</li>
+                    <li>Streamlit</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="mt-5 mb-4">Try It Yourself</h2>
+        <div class="card mb-5">
+            <div class="card-body">
+                <h5 class="card-title">Interactive Demo</h5>
+                <p class="card-text">Try our interactive Streamlit application to run your own 3D reconstructions.</p>
+                <a href="https://yourstreamlitapp.streamlit.app" class="btn btn-success">Launch Streamlit App</a>
+                <p class="mt-3 text-muted">Or run it locally with:</p>
+                <pre class="bg-light p-3 rounded"><code>git clone https://github.com/yourusername/3D-Reconstruction-with-Uncalibrated-Stereo.git
+cd 3D-Reconstruction-with-Uncalibrated-Stereo
+pip install -r requirements.txt
+streamlit run app.py</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>3D Reconstruction with Uncalibrated Stereo</h5>
+                    <p>A project for 3D reconstruction using computer vision techniques.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>Created by Your Name</p>
+                    <a href="https://github.com/yourusername" class="text-white">GitHub</a> |
+                    <a href="https://linkedin.com/in/yourusername" class="text-white">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
