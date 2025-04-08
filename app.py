@@ -12,7 +12,6 @@ from PIL import Image
 import io
 import base64
 import plotly.graph_objects as go
-import webbrowser
 
 # def check_environment():
 #     env_status = {}
@@ -344,7 +343,7 @@ if page == "Home":
                 st.info("Go to 'View Results' to see the reconstruction output.")
 
 if page == "SFM":
-    webbrowser.open_new_tab("https://3d-recon-from-2d.streamlit.app/")
+    st.markdown("[Go to SFM](https://3d-recon-from-2d.streamlit.app/)")
 
 # UPLOAD IMAGES PAGE
 # elif page == "Upload Images":
