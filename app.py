@@ -53,12 +53,12 @@ st.set_page_config(
 st.title("3D Reconstruction with Uncalibrated Stereo")
 st.markdown("""
 This application demonstrates 3D reconstruction using uncalibrated stereo vision techniques.
-Upload your own stereo images or use our provided examples to see the reconstruction pipeline in action.
+Use our provided examples to see the reconstruction pipeline in action.
 """)
 
 # Create sidebar for navigation
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Home", "Upload Images", "View Results", "About"])
+page = st.sidebar.radio("Go to", ["Home", "View Results", "About"])
 
 # Define paths
 DATA_DIR = Path("Data")
@@ -343,87 +343,87 @@ if page == "Home":
                 st.info("Go to 'View Results' to see the reconstruction output.")
 
 # UPLOAD IMAGES PAGE
-elif page == "Upload Images":
-    st.header("Upload Your Own Stereo Images")
+# elif page == "Upload Images":
+#     st.header("Upload Your Own Stereo Images")
     
-    # Instructions
-    st.markdown("""
-    ### Instructions
-    1. Upload a series of images taken around an object.
-    2. The images should overlap significantly.
-    3. Try to maintain consistent lighting.
-    4. Avoid motion blur.
-    """)
+#     # Instructions
+#     st.markdown("""
+#     ### Instructions
+#     1. Upload a series of images taken around an object.
+#     2. The images should overlap significantly.
+#     3. Try to maintain consistent lighting.
+#     4. Avoid motion blur.
+#     """)
     
-    # Image upload
-    uploaded_files = st.file_uploader(
-        "Upload Images", 
-        type=["jpg", "jpeg", "png"],
-        accept_multiple_files=True
-    )
+#     # Image upload
+#     uploaded_files = st.file_uploader(
+#         "Upload Images", 
+#         type=["jpg", "jpeg", "png"],
+#         accept_multiple_files=True
+#     )
     
-    if uploaded_files:
-        st.success(f"Uploaded {len(uploaded_files)} images.")
+#     if uploaded_files:
+#         st.success(f"Uploaded {len(uploaded_files)} images.")
         
-        # Create a custom directory for these uploads
-        upload_dir = DATA_DIR / "uploads"
-        upload_dir.mkdir(parents=True, exist_ok=True)
+#         # Create a custom directory for these uploads
+#         upload_dir = DATA_DIR / "uploads"
+#         upload_dir.mkdir(parents=True, exist_ok=True)
         
-        # Save the uploaded files
-        saved_files = []
-        for uploaded_file in uploaded_files:
-            # Save the file
-            file_path = upload_dir / uploaded_file.name
-            with open(file_path, "wb") as f:
-                f.write(uploaded_file.getbuffer())
-            saved_files.append(str(file_path))
+#         # Save the uploaded files
+#         saved_files = []
+#         for uploaded_file in uploaded_files:
+#             # Save the file
+#             file_path = upload_dir / uploaded_file.name
+#             with open(file_path, "wb") as f:
+#                 f.write(uploaded_file.getbuffer())
+#             saved_files.append(str(file_path))
         
-        # Display the uploaded images
-        st.subheader("Uploaded Images")
-        display_image_grid(saved_files, width=150)
+#         # Display the uploaded images
+#         st.subheader("Uploaded Images")
+#         display_image_grid(saved_files, width=150)
         
-        # Run reconstruction on uploaded images
-        st.subheader("Run Reconstruction")
+#         # Run reconstruction on uploaded images
+#         st.subheader("Run Reconstruction")
         
-        topology_choice = st.selectbox(
-            "Select Camera Topology", 
-            ["skipping_2", "skipping_1", "adjacent", "overlapping", "360"]
-        )
+#         topology_choice = st.selectbox(
+#             "Select Camera Topology", 
+#             ["skipping_2", "skipping_1", "adjacent", "overlapping", "360"]
+#         )
         
-        if st.button("Start Reconstruction"):
-            cmd = [
-                "python", "Temple.py",
-                "--input_dir", str(upload_dir),
-                "--output_dir", str(OUTPUT_DIR / "uploads"),
-                "--topology", topology_choice
-            ]
+#         if st.button("Start Reconstruction"):
+#             cmd = [
+#                 "python", "Temple.py",
+#                 "--input_dir", str(upload_dir),
+#                 "--output_dir", str(OUTPUT_DIR / "uploads"),
+#                 "--topology", topology_choice
+#             ]
             
-            st.info("Starting reconstruction process...")
+#             st.info("Starting reconstruction process...")
             
-            # Execute command
-            process = subprocess.Popen(
-                cmd, 
-                stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT,
-                universal_newlines=True
-            )
+#             # Execute command
+#             process = subprocess.Popen(
+#                 cmd, 
+#                 stdout=subprocess.PIPE,
+#                 stderr=subprocess.STDOUT,
+#                 universal_newlines=True
+#             )
             
-            # Create a placeholder for the output
-            output_placeholder = st.empty()
-            complete_log = ""
+#             # Create a placeholder for the output
+#             output_placeholder = st.empty()
+#             complete_log = ""
             
-            # Stream the output
-            for line in process.stdout:
-                complete_log += line
-                output_placeholder.code(complete_log)
+#             # Stream the output
+#             for line in process.stdout:
+#                 complete_log += line
+#                 output_placeholder.code(complete_log)
             
-            # Wait for the process to complete
-            process.wait()
+#             # Wait for the process to complete
+#             process.wait()
             
-            if process.returncode == 0:
-                st.success("Reconstruction completed! Go to 'View Results' to see the output.")
-            else:
-                st.error("Reconstruction failed.")
+#             if process.returncode == 0:
+#                 st.success("Reconstruction completed! Go to 'View Results' to see the output.")
+#             else:
+#                 st.error("Reconstruction failed.")
 
 # VIEW RESULTS PAGE
 elif page == "View Results":
@@ -542,11 +542,11 @@ elif page == "View Results":
             else:
                 st.info("No point cloud views found")
                 
-        with st.expander("Rectification", expanded=False):
-            if rectification:
-                display_image_grid(rectification, cols=2)
-            else:
-                st.info("No rectification visualizations found")
+        # with st.expander("Rectification", expanded=False):
+        #     if rectification:
+        #         display_image_grid(rectification, cols=2)
+        #     else:
+        #         st.info("No rectification visualizations found")
                 
         # with st.expander("Other Visualizations", expanded=False):
         #     if other_images:
