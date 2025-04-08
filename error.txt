@@ -2,24 +2,24 @@
 
 ────────────────────────────────────────────────────────────────────────────────────────
 
-[15:00:58] 🖥 Provisioning machine...
+[15:07:49] 🖥 Provisioning machine...
 
-[15:00:58] 🎛 Preparing system...
+[15:07:49] 🎛 Preparing system...
 
-[15:00:58] ⛓ Spinning up manager process...
+[15:07:49] ⛓ Spinning up manager process...
 
-[15:00:56] 🚀 Starting up repository: '3d-reconstruction-from-2d-images-', branch: 'main', main module: 'app.py'
+[15:07:46] 🚀 Starting up repository: '3d-reconstruction-from-2d-images-', branch: 'main', main module: 'app.py'
 
-[15:00:56] 🐙 Cloning repository...
+[15:07:46] 🐙 Cloning repository...
 
-[15:01:02] 🐙 Cloning into '/mount/src/3d-reconstruction-from-2d-images-'...
+[15:07:52] 🐙 Cloning into '/mount/src/3d-reconstruction-from-2d-images-'...
 Updating files: 100% (105/105), done.
 
-[15:01:02] 🐙 Cloned repository!
+[15:07:52] 🐙 Cloned repository!
 
-[15:01:02] 🐙 Pulling code changes from Github...
+[15:07:52] 🐙 Pulling code changes from Github...
 
-[15:01:04] 📦 Processing dependencies...
+[15:07:54] 📦 Processing dependencies...
 
 
 ──────────────────────────────────────── uv ───────────────────────────────────────────
@@ -29,11 +29,11 @@ Using uv pip install.
 
 Using Python 3.12.9 environment at /home/adminuser/venv
 
-Resolved 91 packages in 751ms
+Resolved 91 packages in 625ms
 
-Prepared 91 packages in 13.37s
+Prepared 91 packages in 9.53s
 
-Installed 91 packages in 1.34s
+Installed 91 packages in 634ms
 
  + addict==2.4.0
 
@@ -49,9 +49,9 @@ Installed 91 packages in 1.34s
 
  + certifi==2025.1.31
 
- + charset-normalizer==3.4.1[2025-04-08 15:01:20.397392] 
+ + charset-normalizer==3.4.1
 
- + click==8.1.8
+ + click==8.1.8[2025-04-08 15:08:05.636035] 
 
  + comm==0.2.2
 
@@ -69,11 +69,11 @@ Installed 91 packages in 1.34s
 
  + fastjsonschema==2.21.1
 
- + flask==[2025-04-08 15:01:20.397652] 3.0.3
+ + flask==3.0.3
 
  + fonttools==4.57.0
 
- + gitdb==4.0.12
+ +[2025-04-08 15:08:05.636285]  gitdb==4.0.12
 
  + gitpython==3.1.44
 
@@ -85,17 +85,17 @@ Installed 91 packages in 1.34s
 
  + ipython-pygments-lexers==1.1.1
 
- +[2025-04-08 15:01:20.397877]  ipywidgets==8.1.5
+ + ipywidgets==8.1.5
 
  + itsdangerous==2.2.0
 
  + jedi==0.19.2
 
- + jinja2==3.1.6
+ + jinja2[2025-04-08 15:08:05.636473] ==3.1.6
 
  + joblib==1.4.2
 
- [2025-04-08 15:01:20.398091] + jsonschema==4.23.0
+ + jsonschema==4.23.0
 
  + jsonschema-specifications==2024.10.1
 
@@ -107,9 +107,9 @@ Installed 91 packages in 1.34s
 
  + markdown-it-py==3.0.0
 
- + markupsafe==3.0.2
+ + markupsafe==[2025-04-08 15:08:05.636667] 3.0.2
 
- + [2025-04-08 15:01:20.398332] matplotlib==3.10.0
+ + matplotlib==3.10.0
 
  + matplotlib-inline==0.1.7
 
@@ -119,31 +119,31 @@ Installed 91 packages in 1.34s
 
  + nbformat==5.10.4
 
- + nest-asyncio==1.6.0[2025-04-08 15:01:20.398577] 
+ + nest-asyncio==1.6.0
 
  + numpy==2.0.2
 
- + open3d==0.19.0
+ + open3d==[2025-04-08 15:08:05.636874] 0.19.0
 
- + opencv-python==4.11.0.86
+ + opencv-python-headless==4.11.0.86
 
  + packaging==24.2
 
  + pandas==2.2.3
 
- + parso==0.8.4[2025-04-08 15:01:20.398782] 
+ + parso==0.8.4
 
  + pexpect==4.9.0
 
  + pillow==10.4.0
 
- + platformdirs==4.3.7
+ + platformdirs==4.3.7[2025-04-08 15:08:05.637061] 
 
  + plotly==6.0.1
 
  + prompt-toolkit==3.0.50
 
- +[2025-04-08 15:01:20.398933]  protobuf==5.29.4
+ [2025-04-08 15:08:05.637227] + protobuf==5.29.4
 
  + ptyprocess==0.7.0
 
@@ -153,7 +153,7 @@ Installed 91 packages in 1.34s
 
  + pydeck==0.9.1
 
- + [2025-04-08 15:01:20.399089] pygments==2.19.1
+ +[2025-04-08 15:08:05.637337]  pygments==2.19.1
 
  + pyparsing==3.2.3
 
@@ -163,9 +163,9 @@ Installed 91 packages in 1.34s
 
  + pytz==2025.2
 
- + pyyaml==[2025-04-08 15:01:20.399259] 6.0.2
+ + pyyaml==6.0.2
 
- + referencing==0.36.2
+ + referencing[2025-04-08 15:08:05.637435] ==0.36.2
 
  + requests==2.32.3
 
@@ -173,9 +173,9 @@ Installed 91 packages in 1.34s
 
  + rich==13.9.4
 
- + rpds-py==0.24.0[2025-04-08 15:01:20.399442] 
+ + rpds-py==0.24.0
 
- + scikit-learn==1.6.1
+ + scikit-learn==[2025-04-08 15:08:05.637530] 1.6.1
 
  + scipy==1.15.1
 
@@ -185,7 +185,7 @@ Installed 91 packages in 1.34s
 
  + smmap==5.0.2
 
- +[2025-04-08 15:01:20.399624]  stack-data==0.6.3
+ + stack-data==0.6.3[2025-04-08 15:08:05.637626] 
 
  + streamlit==1.41.1
 
@@ -195,7 +195,7 @@ Installed 91 packages in 1.34s
 
  + toml==0.10.2
 
- + tornado==6.4.2
+ + [2025-04-08 15:08:05.637724] tornado==6.4.2
 
  + tqdm==4.67.1
 
@@ -205,15 +205,15 @@ Installed 91 packages in 1.34s
 
  + tzdata==2025.2
 
- + urllib3==2.3.0
+ [2025-04-08 15:08:05.637828] + urllib3==2.3.0
 
- + [2025-04-08 15:01:20.399945] watchdog==6.0.0
+ + watchdog==6.0.0
 
  + wcwidth==0.2.13
 
  + werkzeug==3.0.6
 
- + widgetsnbextension==4.0.13
+ + [2025-04-08 15:08:05.637927] widgetsnbextension==4.0.13
 
  + zipp==3.21.0
 
@@ -227,22 +227,30 @@ Using uv pip install.
 
 Using Python 3.12.9 environment at /home/adminuser/venv
 
-Audited 1 package in 5ms
+Audited 1 package in 3ms
 
 
 ────────────────────────────────────────────────────────────────────────────────────────
 
 
-[15:01:23] 🐍 Python dependencies were installed from /mount/src/3d-reconstruction-from-2d-images-/requirements.txt using uv.
+[15:08:07] 🐍 Python dependencies were installed from /mount/src/3d-reconstruction-from-2d-images-/requirements.txt using uv.
 
 Check if streamlit is installed
 
 Streamlit is already installed
 
-[15:01:25] 📦 Processed dependencies!
+[15:08:09] 📦 Processed dependencies!
 
 
 
+
+[15:08:12] 🐙 Pulling code changes from Github...
+
+[15:08:14] 📦 Processing dependencies...
+
+[15:08:14] 📦 Processed dependencies!
+
+[15:08:15] 🔄 Updated app!
 
 ────────────────────── Traceback (most recent call last) ───────────────────────
 
@@ -258,91 +266,71 @@ Streamlit is already installed
 
                                                                                 
 
-  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:6 in <module>             
 
                                                                                 
-
-      1 import streamlit as st                                                  
-
-      2 import numpy as np                                                      
 
       3 import matplotlib.pyplot as plt                                         
 
-  ❱   4 import cv2                                                              
+      4 import cv2                                                              
 
       5 import os                                                               
 
-      6 import open3d as o3d                                                    
+  ❱   6 import open3d as o3d                                                    
 
       7 from pathlib import Path                                                
 
+      8 import subprocess                                                       
+
+      9 import glob                                                             
+
                                                                                 
 
-  /home/adminuser/venv/lib/python3.12/site-packages/cv2/__init__.py:181 in      
+  /home/adminuser/venv/lib/python3.12/site-packages/open3d/__init__.py:38 in    
 
   <module>                                                                      
 
                                                                                 
 
-    178 │   if DEBUG: print('OpenCV loader: DONE')                              
+     35 │   # Load CPU pybind dll gracefully without introducing new python va  
 
-    179                                                                         
+     36 │   # Do this before loading the CUDA pybind dll to correctly resolve   
 
-    180                                                                         
+     37 │   try:  # StopIteration if cpu version not available                  
 
-  ❱ 181 bootstrap()                                                             
+  ❱  38 │   │   CDLL(str(next((Path(__file__).parent / "cpu").glob("pybind*"))  
 
-    182                                                                         
+     39 │   except StopIteration:                                               
 
-                                                                                
+     40 │   │   warnings.warn(                                                  
 
-  /home/adminuser/venv/lib/python3.12/site-packages/cv2/__init__.py:153 in      
-
-  bootstrap                                                                     
+     41 │   │   │   "Open3D was built with CUDA support, but Open3D CPU Python  
 
                                                                                 
 
-    150 │                                                                       
-
-    151 │   py_module = sys.modules.pop("cv2")                                  
-
-    152 │                                                                       
-
-  ❱ 153 │   native_module = importlib.import_module("cv2")                      
-
-    154 │                                                                       
-
-    155 │   sys.modules["cv2"] = py_module                                      
-
-    156 │   setattr(py_module, "_native", native_module)                        
+  /usr/local/lib/python3.12/ctypes/__init__.py:379 in __init__                  
 
                                                                                 
 
-  /usr/local/lib/python3.12/importlib/__init__.py:90 in import_module           
+    376 │   │   self._FuncPtr = _FuncPtr                                        
 
-                                                                                
+    377 │   │                                                                   
 
-     87 │   │   │   if character != '.':                                        
+    378 │   │   if handle is None:                                              
 
-     88 │   │   │   │   break                                                   
+  ❱ 379 │   │   │   self._handle = _dlopen(self._name, mode)                    
 
-     89 │   │   │   level += 1                                                  
+    380 │   │   else:                                                           
 
-  ❱  90 │   return _bootstrap._gcd_import(name[level:], package, level)         
+    381 │   │   │   self._handle = handle                                       
 
-     91                                                                         
-
-     92                                                                         
-
-     93 _RELOADING = {}                                                         
+    382                                                                         
 
 ────────────────────────────────────────────────────────────────────────────────
 
-ImportError: libGL.so.1: cannot open shared object file: No such file or 
+OSError: libGL.so.1: cannot open shared object file: No such file or directory
 
-directory
-
-2025-04-08 15:01:35.132 Uncaught app execution
+2025-04-08 15:08:18.372 Uncaught app execution
 
 Traceback (most recent call last):
 
@@ -356,27 +344,21 @@ Traceback (most recent call last):
 
     exec(code, module.__dict__)
 
-  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 6, in <module>
 
-    import cv2
+    import open3d as o3d
 
-  File "/home/adminuser/venv/lib/python3.12/site-packages/cv2/__init__.py", line 181, in <module>
+  File "/home/adminuser/venv/lib/python3.12/site-packages/open3d/__init__.py", line 38, in <module>
 
-    bootstrap()
+    CDLL(str(next((Path(__file__).parent / "cpu").glob("pybind*"))))
 
-  File "/home/adminuser/venv/lib/python3.12/site-packages/cv2/__init__.py", line 153, in bootstrap
+  File "/usr/local/lib/python3.12/ctypes/__init__.py", line 379, in __init__
 
-    native_module = importlib.import_module("cv2")
+    self._handle = _dlopen(self._name, mode)
 
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-  File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
-
-    return _bootstrap._gcd_import(name[level:], package, level)
-
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+OSError: libGL.so.1: cannot open shared object file: No such file or directory
 
 main
 ykapil897/3d-reconstruction-from-2d-images-/main/app.py
