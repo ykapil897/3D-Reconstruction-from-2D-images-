@@ -1,3 +1,4 @@
+import sys
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
@@ -10,6 +11,34 @@ import glob
 from PIL import Image
 import io
 import base64
+
+# def check_environment():
+#     env_status = {}
+#     env_status["base_dir"] = os.path.exists(BASE_DIR)
+#     env_status["sfm_dir"] = os.path.exists(SFM_DIR)
+#     env_status["data_dir"] = os.path.exists(DATA_DIR)
+#     env_status["script_dir"] = os.path.exists(SFM_DIR / "script")
+#     env_status["temp_writable"] = os.access(TEMP_DIR, os.W_OK)
+#     return env_status
+
+# def get_environment_info():
+    # """Get information about the execution environment for debugging"""
+    # info = {
+    #     "python_version": sys.version,
+    #     "current_directory": os.getcwd(),
+    #     "path_exists": {
+    #         "BASE_DIR": os.path.exists(BASE_DIR),
+    #         "SFM_DIR": os.path.exists(SFM_DIR),
+    #         "DATA_DIR": os.path.exists(DATA_DIR),
+    #         "TEMP_DIR": os.path.exists(TEMP_DIR),
+    #         "script_dir": os.path.exists(SFM_DIR / "script")
+    #     },
+    #     "directory_contents": {
+    #         "SFM/script": os.listdir(SFM_DIR / "script") if os.path.exists(SFM_DIR / "script") else "Not found",
+    #         "SFM/data": os.listdir(DATA_DIR) if os.path.exists(DATA_DIR) else "Not found"
+    #     }
+    # }
+    # return info
 
 # Set page configuration
 st.set_page_config(
@@ -120,9 +149,11 @@ def run_reconstruction(dataset_choice, topology_choice):
             dataset_path = ROCK_DIR
             dataset_type = "dino"
             
+        env = os.environ.copy()
+        env['PYTHONPATH'] = os.path.dirname(os.__file__) + '/site-packages' + env.get('PYTHONPATH', '')
         # Run the reconstruction script with appropriate parameters
         cmd = [
-            "python", "Temple.py",
+            sys.executable, "Temple.py",
             "--input_dir", str(dataset_path),
             "--output_dir", str(OUTPUT_DIR),
             "--dataset_type", dataset_type,
