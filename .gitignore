@@ -4,6 +4,10 @@ __pycache__/
 *$py.class
 
 error.txt
+Data/Output/dino_360.ply
+Data/Output/dino_adjacent.ply
+Data/Output/dino_overlapping.ply
+Data/Output/dino_merged.ply
 
 # C extensions
 *.so
