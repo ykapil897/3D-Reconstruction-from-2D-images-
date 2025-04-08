@@ -1,0 +1,4896 @@
+[     UTC     ] Logs for reconstruction-3d-from-2d.streamlit.app/
+
+────────────────────────────────────────────────────────────────────────────────────────
+
+[14:40:19] 🖥 Provisioning machine...
+
+[14:40:19] 🎛 Preparing system...
+
+[14:40:19] ⛓ Spinning up manager process...
+
+[14:40:20] 🚀 Starting up repository: '3d-reconstruction-from-2d-images-', branch: 'main', main module: 'app.py'
+
+[14:40:20] 🐙 Cloning repository...
+
+[14:40:27] 🐙 Cloning into '/mount/src/3d-reconstruction-from-2d-images-'...
+Updating files: 100% (103/103), done.
+
+[14:40:27] 🐙 Cloned repository!
+
+[14:40:27] 🐙 Pulling code changes from Github...
+
+[14:40:29] 📦 Processing dependencies...
+
+
+──────────────────────────────────────── uv ───────────────────────────────────────────
+
+
+Using uv pip install.
+
+Using Python 3.12.9 environment at /home/adminuser/venv
+
+Resolved 91 packages in 665ms
+
+Prepared 91 packages in 15.00s
+
+Installed 91 packages in 663ms
+
+ + addict==2.4.0
+
+ + altair==5.5.0
+
+ + asttokens==3.0.0
+
+ + attrs==25.3.0
+
+ + blinker==1.9.0
+
+ + cachetools==5.5.2
+
+ + certifi==2025.1.31[2025-04-08 14:40:46.145075] 
+
+ + charset-normalizer==3.4.1
+
+ + click==8.1.8
+
+ + comm==0.2.2
+
+ + configargparse==1.7
+
+ + contourpy==1.3.1
+
+ + cycler==0.12.1
+
+ + dash==3.0.2
+
+ +[2025-04-08 14:40:46.145341]  decorator==5.2.1
+
+ + executing==2.2.0
+
+ + fastjsonschema==2.21.1
+
+ + flask[2025-04-08 14:40:46.145479] ==3.0.3
+
+ + fonttools==4.57.0
+
+ + gitdb==4.0.12
+
+ + gitpython==3.1.44
+
+ + idna==3.10
+
+ + importlib-metadata==8.6.1
+
+ + ipython==9.1.0
+
+ [2025-04-08 14:40:46.145817] + ipython-pygments-lexers==1.1.1
+
+ + ipywidgets==8.1.5
+
+ + itsdangerous==2.2.0
+
+ [2025-04-08 14:40:46.145942] + jedi==0.19.2
+
+ + jinja2==3.1.6
+
+ + joblib==1.4.2
+
+ + jsonschema==4.23.0
+
+ + jsonschema-specifications==2024.10.1
+
+ + jupyter-core==5.7.2[2025-04-08 14:40:46.146184] 
+
+ + jupyterlab-widgets==3.0.13
+
+ + kiwisolver==1.4.8
+
+ + markdown-it-py==3.0.0
+
+ + markupsafe==3.0.2
+
+ + matplotlib==3.10.0
+
+ + matplotlib-inline==[2025-04-08 14:40:46.146306] 0.1.7
+
+ + mdurl==0.1.2
+
+ + narwhals==1.34.0
+
+ + nbformat==5.10.4[2025-04-08 14:40:46.146488] 
+
+ + nest-asyncio==1.6.0
+
+ + numpy==2.0.2[2025-04-08 14:40:46.146645] 
+
+ + open3d==0.19.0
+
+ + opencv-python==4.11.0.86
+
+ + packaging==24.2[2025-04-08 14:40:46.146779] 
+
+ + pandas==2.2.3
+
+ + parso==[2025-04-08 14:40:46.146890] 0.8.4
+
+ + pexpect==4.9.0
+
+ + pillow==10.4.0
+
+ [2025-04-08 14:40:46.147006] + platformdirs==4.3.7
+
+ + plotly==6.0.1
+
+ + prompt-toolkit==3.0.50[2025-04-08 14:40:46.147114] 
+
+ + protobuf==5.29.4
+
+ + ptyprocess==0.7.0
+
+ + pure-eval==[2025-04-08 14:40:46.147213] 0.2.3
+
+ + pyarrow==19.0.1
+
+ + pydeck==0.9.1
+
+ +[2025-04-08 14:40:46.147310]  pygments==2.19.1
+
+ + pyparsing==3.2.3
+
+ + pyquaternion==0.9.9
+
+ + python-dateutil==2.9.0.post0
+
+ + pytz==2025.2
+
+ + [2025-04-08 14:40:46.147541] pyyaml==6.0.2
+
+ + referencing==0.36.2
+
+ + requests==2.32.3
+
+ [2025-04-08 14:40:46.147675] + retrying==1.3.4
+
+ + rich==13.9.4
+
+ + rpds-py==0.24.0
+
+ + scikit-learn==1.6.1
+
+ + scipy==1.15.1
+
+ + setuptools==78.1.0[2025-04-08 14:40:46.147859] 
+
+ + six==1.17.0
+
+ + smmap==5.0.2
+
+ + stack-data==0.6.3[2025-04-08 14:40:46.147941] 
+
+ + streamlit==1.41.1
+
+ + tenacity==9.1.2
+
+ + threadpoolctl==3.6.0
+
+ + toml==[2025-04-08 14:40:46.148016] 0.10.2
+
+ + tornado==6.4.2
+
+ + tqdm==4.67.1
+
+ + traitlets==5.14.3
+
+ [2025-04-08 14:40:46.148100] + typing-extensions==4.13.1
+
+ + tzdata==2025.2
+
+ + urllib3==2.3.0
+
+ + watchdog==[2025-04-08 14:40:46.148191] 6.0.0
+
+ + wcwidth==0.2.13
+
+ + werkzeug==3.0.6
+
+ + [2025-04-08 14:40:46.148282] widgetsnbextension==4.0.13
+
+ + zipp==3.21.0
+
+Checking if Streamlit is installed
+
+Found Streamlit version 1.41.1 in the environment
+
+Installing rich for an improved exception logging
+
+Using uv pip install.
+
+Using Python 3.12.9 environment at /home/adminuser/venv
+
+Audited 1 package in 3ms
+
+
+────────────────────────────────────────────────────────────────────────────────────────
+
+
+[14:40:47] 🐍 Python dependencies were installed from /mount/src/3d-reconstruction-from-2d-images-/requirements.txt using uv.
+
+Check if streamlit is installed
+
+Streamlit is already installed
+
+[14:40:49] 📦 Processed dependencies!
+
+
+
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:6 in <module>             
+
+                                                                                
+
+      3 import matplotlib.pyplot as plt                                         
+
+      4 import cv2                                                              
+
+      5 import os                                                               
+
+  ❱   6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+      8 import subprocess                                                       
+
+      9 import glob                                                             
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/open3d/__init__.py:38 in    
+
+  <module>                                                                      
+
+                                                                                
+
+     35 │   # Load CPU pybind dll gracefully without introducing new python va  
+
+     36 │   # Do this before loading the CUDA pybind dll to correctly resolve   
+
+     37 │   try:  # StopIteration if cpu version not available                  
+
+  ❱  38 │   │   CDLL(str(next((Path(__file__).parent / "cpu").glob("pybind*"))  
+
+     39 │   except StopIteration:                                               
+
+     40 │   │   warnings.warn(                                                  
+
+     41 │   │   │   "Open3D was built with CUDA support, but Open3D CPU Python  
+
+                                                                                
+
+  /usr/local/lib/python3.12/ctypes/__init__.py:379 in __init__                  
+
+                                                                                
+
+    376 │   │   self._FuncPtr = _FuncPtr                                        
+
+    377 │   │                                                                   
+
+    378 │   │   if handle is None:                                              
+
+  ❱ 379 │   │   │   self._handle = _dlopen(self._name, mode)                    
+
+    380 │   │   else:                                                           
+
+    381 │   │   │   self._handle = handle                                       
+
+    382                                                                         
+
+────────────────────────────────────────────────────────────────────────────────
+
+OSError: libGL.so.1: cannot open shared object file: No such file or directory
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/cv2/__init__.py:181 in      
+
+  <module>                                                                      
+
+                                                                                
+
+    178 │   if DEBUG: print('OpenCV loader: DONE')                              
+
+    179                                                                         
+
+    180                                                                         
+
+  ❱ 181 bootstrap()                                                             
+
+    182                                                                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/cv2/__init__.py:153 in      
+
+  bootstrap                                                                     
+
+                                                                                
+
+    150 │                                                                       
+
+    151 │   py_module = sys.modules.pop("cv2")                                  
+
+    152 │                                                                       
+
+  ❱ 153 │   native_module = importlib.import_module("cv2")                      
+
+    154 │                                                                       
+
+    155 │   sys.modules["cv2"] = py_module                                      
+
+    156 │   setattr(py_module, "_native", native_module)                        
+
+                                                                                
+
+  /usr/local/lib/python3.12/importlib/__init__.py:90 in import_module           
+
+                                                                                
+
+     87 │   │   │   if character != '.':                                        
+
+     88 │   │   │   │   break                                                   
+
+     89 │   │   │   level += 1                                                  
+
+  ❱  90 │   return _bootstrap._gcd_import(name[level:], package, level)         
+
+     91                                                                         
+
+     92                                                                         
+
+     93 _RELOADING = {}                                                         
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:40:58.272 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 6, in <module>
+
+    import open3d as o3d
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/open3d/__init__.py", line 38, in <module>
+
+    CDLL(str(next((Path(__file__).parent / "cpu").glob("pybind*"))))
+
+  File "/usr/local/lib/python3.12/ctypes/__init__.py", line 379, in __init__
+
+    self._handle = _dlopen(self._name, mode)
+
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+OSError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:40:58.289 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/cv2/__init__.py", line 181, in <module>
+
+    bootstrap()
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/cv2/__init__.py", line 153, in bootstrap
+
+    native_module = importlib.import_module("cv2")
+
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+
+    return _bootstrap._gcd_import(name[level:], package, level)
+
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:41:00.388 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:45:22.687 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+[14:45:22] ❗️ 
+
+2025-04-08 14:45:22.808 503 GET /script-health-check (127.0.0.1) 129.40ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:45:27.680 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:45:27.800 503 GET /script-health-check (127.0.0.1) 128.52ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:45:32.664 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:45:32.778 503 GET /script-health-check (127.0.0.1) 122.80ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:45:37.683 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:45:37.807 503 GET /script-health-check (127.0.0.1) 133.03ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:45:42.679 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:45:42.797 503 GET /script-health-check (127.0.0.1) 126.64ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:45:47.678 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:45:47.807 503 GET /script-health-check (127.0.0.1) 137.07ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:45:52.678 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:45:52.794 503 GET /script-health-check (127.0.0.1) 124.74ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:45:57.675 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:45:57.804 503 GET /script-health-check (127.0.0.1) 137.35ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:46:02.671 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:46:02.792 503 GET /script-health-check (127.0.0.1) 128.53ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:46:07.682 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:46:07.801 503 GET /script-health-check (127.0.0.1) 127.14ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:46:12.684 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:46:12.791 503 GET /script-health-check (127.0.0.1) 115.62ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:46:17.678 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:46:17.793 503 GET /script-health-check (127.0.0.1) 122.51ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:46:22.671 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:46:22.787 503 GET /script-health-check (127.0.0.1) 124.40ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:46:27.676 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:46:27.808 503 GET /script-health-check (127.0.0.1) 141.99ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:46:32.672 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:46:32.785 503 GET /script-health-check (127.0.0.1) 121.13ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:46:37.728 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:46:37.837 503 GET /script-health-check (127.0.0.1) 116.74ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:46:42.675 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:46:42.791 503 GET /script-health-check (127.0.0.1) 123.30ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:46:47.673 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:46:47.796 503 GET /script-health-check (127.0.0.1) 130.35ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:46:52.672 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:46:52.782 503 GET /script-health-check (127.0.0.1) 118.61ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:46:57.671 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:46:57.789 503 GET /script-health-check (127.0.0.1) 125.86ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:47:02.670 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:47:02.784 503 GET /script-health-check (127.0.0.1) 121.66ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:47:07.672 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:47:07.784 503 GET /script-health-check (127.0.0.1) 119.72ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:47:12.678 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:47:12.806 503 GET /script-health-check (127.0.0.1) 134.87ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:47:17.695 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:47:17.827 503 GET /script-health-check (127.0.0.1) 140.74ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:47:22.686 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:47:22.799 503 GET /script-health-check (127.0.0.1) 121.42ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:47:27.681 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:47:27.810 503 GET /script-health-check (127.0.0.1) 136.83ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:47:32.672 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:47:32.784 503 GET /script-health-check (127.0.0.1) 119.13ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:47:37.692 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:47:37.809 503 GET /script-health-check (127.0.0.1) 125.28ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:47:42.670 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:47:42.796 503 GET /script-health-check (127.0.0.1) 134.96ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:47:47.681 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:47:47.795 503 GET /script-health-check (127.0.0.1) 122.13ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:47:52.664 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:47:52.782 503 GET /script-health-check (127.0.0.1) 126.26ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:47:57.669 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:47:57.789 503 GET /script-health-check (127.0.0.1) 127.62ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:48:02.662 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:48:02.782 503 GET /script-health-check (127.0.0.1) 127.76ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:48:07.673 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:48:07.797 503 GET /script-health-check (127.0.0.1) 131.28ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:48:12.677 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:48:12.788 503 GET /script-health-check (127.0.0.1) 118.22ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:48:17.664 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:48:17.793 503 GET /script-health-check (127.0.0.1) 136.67ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:48:22.668 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:48:22.778 503 GET /script-health-check (127.0.0.1) 117.41ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:48:27.668 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:48:27.797 503 GET /script-health-check (127.0.0.1) 136.13ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:48:32.671 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:48:32.786 503 GET /script-health-check (127.0.0.1) 122.91ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:48:37.680 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:48:37.795 503 GET /script-health-check (127.0.0.1) 123.49ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:48:42.668 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:48:42.782 503 GET /script-health-check (127.0.0.1) 121.47ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:48:47.674 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:48:47.785 503 GET /script-health-check (127.0.0.1) 118.60ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:48:52.665 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:48:52.793 503 GET /script-health-check (127.0.0.1) 135.94ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:48:57.728 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:48:57.867 503 GET /script-health-check (127.0.0.1) 148.13ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:49:02.679 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:49:02.788 503 GET /script-health-check (127.0.0.1) 117.58ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:49:07.673 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:49:07.785 503 GET /script-health-check (127.0.0.1) 119.18ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:49:12.677 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:49:12.788 503 GET /script-health-check (127.0.0.1) 118.88ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:49:17.702 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:49:17.820 503 GET /script-health-check (127.0.0.1) 127.00ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:49:22.679 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:49:22.803 503 GET /script-health-check (127.0.0.1) 131.38ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:49:27.722 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:49:27.847 503 GET /script-health-check (127.0.0.1) 135.19ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:49:32.678 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:49:32.803 503 GET /script-health-check (127.0.0.1) 132.05ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:49:37.685 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:49:37.794 503 GET /script-health-check (127.0.0.1) 116.34ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:49:42.723 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:49:42.867 503 GET /script-health-check (127.0.0.1) 151.72ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:49:47.687 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:49:47.805 503 GET /script-health-check (127.0.0.1) 125.86ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:49:52.671 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:49:52.785 503 GET /script-health-check (127.0.0.1) 125.10ms
+
+[14:49:54] 🐙 Pulling code changes from Github...
+
+[14:49:57] 📦 Processing dependencies...
+
+[14:49:57] 📦 Processed dependencies!
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:49:57.673 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:49:57.789 503 GET /script-health-check (127.0.0.1) 122.94ms
+
+[14:49:58] 🔄 Updated app!
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:50:02.669 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:50:02.789 503 GET /script-health-check (127.0.0.1) 128.28ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:50:07.675 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:50:07.792 503 GET /script-health-check (127.0.0.1) 124.72ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:50:12.666 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:50:12.776 503 GET /script-health-check (127.0.0.1) 118.39ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:50:17.678 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:50:17.814 503 GET /script-health-check (127.0.0.1) 144.01ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:50:22.674 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:50:22.786 503 GET /script-health-check (127.0.0.1) 119.52ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:50:27.682 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:50:27.797 503 GET /script-health-check (127.0.0.1) 122.19ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:50:32.684 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:50:32.806 503 GET /script-health-check (127.0.0.1) 129.06ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:50:37.684 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:50:37.800 503 GET /script-health-check (127.0.0.1) 123.50ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:50:42.670 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:50:42.786 503 GET /script-health-check (127.0.0.1) 123.86ms
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:50:47.673 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+2025-04-08 14:50:47.790 503 GET /script-health-check (127.0.0.1) 123.74ms
+
+[14:50:55] 🚀 Starting up repository: '3d-reconstruction-from-2d-images-', branch: 'main', main module: 'app.py'
+
+[14:50:55] 🐙 Cloning repository...
+
+[14:51:01] 🔌 Disconnecting...
+
+[14:51:03] 🐙 Cloning into '/mount/src/3d-reconstruction-from-2d-images-'...
+Updating files: 100% (104/104), done.
+
+[14:51:03] 🐙 Cloned repository!
+
+[14:51:03] 🐙 Pulling code changes from Github...
+
+[14:51:04] 🖥 Provisioning machine...
+
+[14:51:04] 🎛 Preparing system...
+
+[14:51:04] ⛓ Spinning up manager process...
+
+[14:51:06] 📦 Processing dependencies...
+
+
+──────────────────────────────────────── uv ───────────────────────────────────────────
+
+
+Using uv pip install.
+
+Using Python 3.12.9 environment at /home/adminuser/venv
+
+Resolved 91 packages in 1.02s
+
+Prepared [2025-04-08 14:51:29.007019] 91 packages[2025-04-08 14:51:29.007321]  [2025-04-08 14:51:29.007643] in 21.04s[2025-04-08 14:51:29.008040] 
+
+Installed 91 packages in 1.80s
+
+ + addict==2.4.0
+
+ + altair==5.5.0
+
+ + asttokens==3.0.0
+
+ + attrs==25.3.0
+
+ + blinker==1.9.0
+
+ + cachetools==5.5.2
+
+ + certifi==2025.1.31
+
+ + charset-normalizer==3.4.1
+
+ + click==8.1.8
+
+ + comm==0.2.2
+
+ + configargparse==1.7
+
+ + contourpy==1.3.1
+
+ + cycler==0.12.1
+
+ + dash==[2025-04-08 14:51:30.823870] 3.0.2
+
+ + decorator==5.2.1
+
+ + executing==2.2.0
+
+ + fastjsonschema==2.21.1
+
+ + flask==3.0.3
+
+ + fonttools==4.57.0
+
+ + gitdb==4.0.12
+
+ + gitpython==3.1.44
+
+ + idna==3.10
+
+ + importlib-metadata==8.6.1
+
+ + ipython==9.1.0
+
+ + ipython-pygments-lexers==1.1.1
+
+ + ipywidgets==8.1.5
+
+ + itsdangerous==2.2.0
+
+ + jedi==0.19.2
+
+ + jinja2==3.1.6
+
+ + joblib==1.4.2
+
+ + jsonschema==4.23.0
+
+ + jsonschema-specifications==2024.10.1
+
+ + jupyter-core==5.7.2
+
+ + jupyterlab-widgets==3.0.13
+
+ + kiwisolver==1.4.8
+
+ + markdown-it-py==3.0.0
+
+ + markupsafe==3.0.2
+
+ + [2025-04-08 14:51:30.824260] matplotlib==3.10.0
+
+ + matplotlib-inline==0.1.7
+
+ + mdurl==0.1.2
+
+ + narwhals==1.34.0
+
+ + nbformat==5.10.4
+
+ + nest-asyncio==1.6.0
+
+ + numpy==2.0.2
+
+ + open3d==0.19.0
+
+ + opencv-python==4.11.0.86
+
+ + packaging==24.2
+
+ + pandas==2.2.3
+
+ + parso==0.8.4
+
+ + pexpect==4.9.0
+
+ + pillow==10.4.0
+
+ + platformdirs==4.3.7
+
+ + plotly==6.0.1
+
+ + prompt-toolkit==3.0.50
+
+ + protobuf==5.29.4
+
+ + ptyprocess[2025-04-08 14:51:30.824539] ==0.7.0
+
+ + pure-eval==0.2.3
+
+ + pyarrow==19.0.1
+
+ + pydeck==0.9.1
+
+ + pygments==2.19.1
+
+ + pyparsing==3.2.3
+
+ + pyquaternion==0.9.9
+
+ + python-dateutil==2.9.0.post0
+
+ + pytz==2025.2
+
+ + pyyaml==6.0.2
+
+ + referencing==0.36.2
+
+ + requests==2.32.3
+
+ + retrying==1.3.4
+
+ + rich==13.9.4
+
+ + rpds-py==0.24.0
+
+ + scikit-learn==1.6.1
+
+ + scipy==1.15.1
+
+ + setuptools==78.1.0
+
+ + six==1.17.0
+
+ + smmap==5.0.2
+
+ + stack-data==0.6.3
+
+ + streamlit==1.41.1
+
+ + tenacity==9.1.2
+
+ + threadpoolctl==3.6.0
+
+ + toml==0.10.2
+
+ + tornado==6.4.2
+
+ + tqdm==[2025-04-08 14:51:30.825785] 4.67.1
+
+ + traitlets==5.14.3
+
+ + typing-extensions==4.13.1
+
+ + tzdata==2025.2
+
+ + urllib3==2.3.0
+
+ + watchdog==6.0.0
+
+ + wcwidth==0.2.13
+
+ + werkzeug==3.0.6
+
+ + widgetsnbextension==4.0.13
+
+ + zipp==3.21.0
+
+Checking if Streamlit is installed
+
+Found Streamlit version 1.41.1 in the environment
+
+Installing rich for an improved exception logging
+
+Using uv pip install.
+
+Using Python 3.12.9 environment at /home/adminuser/venv
+
+Audited [2025-04-08 14:51:33.586405] 1 package[2025-04-08 14:51:33.586823]  [2025-04-08 14:51:33.587139] in 16ms[2025-04-08 14:51:33.587728] 
+
+
+────────────────────────────────────────────────────────────────────────────────────────
+
+
+[14:51:33] 🐍 Python dependencies were installed from /mount/src/3d-reconstruction-from-2d-images-/requirements.txt using uv.
+
+Check if streamlit is installed
+
+Streamlit is already installed
+
+[14:51:35] 📦 Processed dependencies!
+
+
+
+
+────────────────────── Traceback (most recent call last) ───────────────────────
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/exec_code.py:88 in exec_func_with_error_handling                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
+
+  nner/script_runner.py:579 in code_to_exec                                     
+
+                                                                                
+
+  /mount/src/3d-reconstruction-from-2d-images-/app.py:4 in <module>             
+
+                                                                                
+
+      1 import streamlit as st                                                  
+
+      2 import numpy as np                                                      
+
+      3 import matplotlib.pyplot as plt                                         
+
+  ❱   4 import cv2                                                              
+
+      5 import os                                                               
+
+      6 import open3d as o3d                                                    
+
+      7 from pathlib import Path                                                
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/cv2/__init__.py:181 in      
+
+  <module>                                                                      
+
+                                                                                
+
+    178 │   if DEBUG: print('OpenCV loader: DONE')                              
+
+    179                                                                         
+
+    180                                                                         
+
+  ❱ 181 bootstrap()                                                             
+
+    182                                                                         
+
+                                                                                
+
+  /home/adminuser/venv/lib/python3.12/site-packages/cv2/__init__.py:153 in      
+
+  bootstrap                                                                     
+
+                                                                                
+
+    150 │                                                                       
+
+    151 │   py_module = sys.modules.pop("cv2")                                  
+
+    152 │                                                                       
+
+  ❱ 153 │   native_module = importlib.import_module("cv2")                      
+
+    154 │                                                                       
+
+    155 │   sys.modules["cv2"] = py_module                                      
+
+    156 │   setattr(py_module, "_native", native_module)                        
+
+                                                                                
+
+  /usr/local/lib/python3.12/importlib/__init__.py:90 in import_module           
+
+                                                                                
+
+     87 │   │   │   if character != '.':                                        
+
+     88 │   │   │   │   break                                                   
+
+     89 │   │   │   level += 1                                                  
+
+  ❱  90 │   return _bootstrap._gcd_import(name[level:], package, level)         
+
+     91                                                                         
+
+     92                                                                         
+
+     93 _RELOADING = {}                                                         
+
+────────────────────────────────────────────────────────────────────────────────
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or 
+
+directory
+
+2025-04-08 14:51:44.610 Uncaught app execution
+
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+
+    result = func()
+
+             ^^^^^^
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/3d-reconstruction-from-2d-images-/app.py", line 4, in <module>
+
+    import cv2
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/cv2/__init__.py", line 181, in <module>
+
+    bootstrap()
+
+  File "/home/adminuser/venv/lib/python3.12/site-packages/cv2/__init__.py", line 153, in bootstrap
+
+    native_module = importlib.import_module("cv2")
+
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+
+    return _bootstrap._gcd_import(name[level:], package, level)
+
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+main
+ykapil897/3d-reconstruction-from-2d-images-/main/app.py
