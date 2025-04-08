@@ -80,15 +80,15 @@ def display_point_cloud(ply_path, width=800, height=600):
         # Try to read the point cloud
         points = None
         
-        if HAS_O3D:
-            # Use Open3D if available
-            try:
-                pcd = o3d.io.read_point_cloud(ply_path)
-                points = np.asarray(pcd.points)
-            except Exception as e:
-                st.warning(f"Error using Open3D to read PLY: {e}")
-                # Fall back to manual parsing
-                points = None
+
+        # Use Open3D if available
+        try:
+            pcd = o3d.io.read_point_cloud(ply_path)
+            points = np.asarray(pcd.points)
+        except Exception as e:
+            st.warning(f"Error using Open3D to read PLY: {e}")
+            # Fall back to manual parsing
+            points = None
         
         # If Open3D failed or isn't available, parse the PLY file manually
         if points is None:
