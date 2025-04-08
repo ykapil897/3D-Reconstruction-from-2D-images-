@@ -12,6 +12,7 @@ from PIL import Image
 import io
 import base64
 import plotly.graph_objects as go
+import datetime
 
 # def check_environment():
 #     env_status = {}
@@ -80,7 +81,6 @@ def display_point_cloud(ply_path, width=800, height=600):
         # Try to read the point cloud
         points = None
         
-
         # Use Open3D if available
         try:
             pcd = o3d.io.read_point_cloud(ply_path)
@@ -162,15 +162,20 @@ def display_point_cloud(ply_path, width=800, height=600):
         # Display the interactive 3D plot
         st.plotly_chart(fig, use_container_width=True)
         
-        # Add download button for the PLY file
+        # Add download button for the PLY file with a unique key based on the file path
         with open(ply_path, 'rb') as f:
             ply_data = f.read()
+        
+        # Use a hash of the file path as a unique key
+        import hashlib
+        file_hash = hashlib.md5(ply_path.encode()).hexdigest()
         
         st.download_button(
             label="Download PLY File",
             data=ply_data,
             file_name=os.path.basename(ply_path),
-            mime="application/octet-stream"
+            mime="application/octet-stream",
+            key=f"download_{file_hash}"  # Add a unique key based on the file path
         )
         
     except Exception as e:
@@ -429,6 +434,7 @@ if page == "SFM":
 #                 st.error("Reconstruction failed.")
 
 # VIEW RESULTS PAGE
+# VIEW RESULTS PAGE
 elif page == "View Results":
     st.header("View Reconstruction Results")
     
@@ -456,63 +462,89 @@ elif page == "View Results":
                 if expected_file in ply_file.name:
                     matching_ply_files.append((ply_file, os.path.getmtime(ply_file)))
     
-    # # If no exact match found, try partial match
-    # if not matching_ply_files:
-    #     for dir_name in output_dirs:
-    #         dir_path = OUTPUT_DIR / dir_name
-    #         for ply_file in dir_path.glob("*.ply"):
-    #             if st.session_state.last_dataset in ply_file.name and st.session_state.last_topology in ply_file.name:
-    #                 matching_ply_files.append((ply_file, os.path.getmtime(ply_file)))
+    # If no exact match found, try partial match
+    if not matching_ply_files:
+        for dir_name in output_dirs:
+            dir_path = OUTPUT_DIR / dir_name
+            for ply_file in dir_path.glob("*.ply"):
+                if st.session_state.last_dataset in ply_file.name and st.session_state.last_topology in ply_file.name:
+                    matching_ply_files.append((ply_file, os.path.getmtime(ply_file)))
     
-    # # If still no matches, try any file with the dataset name
-    # if not matching_ply_files:
-    #     for dir_name in output_dirs:
-    #         dir_path = OUTPUT_DIR / dir_name
-    #         for ply_file in dir_path.glob("*.ply"):
-    #             if st.session_state.last_dataset in ply_file.name:
-    #                 matching_ply_files.append((ply_file, os.path.getmtime(ply_file)))
+    # If still no matches, try any file with the dataset name
+    if not matching_ply_files:
+        for dir_name in output_dirs:
+            dir_path = OUTPUT_DIR / dir_name
+            for ply_file in dir_path.glob("*.ply"):
+                if st.session_state.last_dataset in ply_file.name:
+                    matching_ply_files.append((ply_file, os.path.getmtime(ply_file)))
     
-        if matching_ply_files:
-            # Sort by modification time (newest first)
-            matching_ply_files.sort(key=lambda x: x[1], reverse=True)
+    # If still no matches, just show all PLY files
+    if not matching_ply_files:
+        for dir_name in output_dirs:
+            dir_path = OUTPUT_DIR / dir_name
+            for ply_file in dir_path.glob("*.ply"):
+                matching_ply_files.append((ply_file, os.path.getmtime(ply_file)))
+    
+    if matching_ply_files:
+        # Sort by modification time (newest first)
+        matching_ply_files.sort(key=lambda x: x[1], reverse=True)
+        
+        # Create a list of file options with descriptive names
+        file_options = []
+        for ply_file, mod_time in matching_ply_files:
+            # Format the modification time
+            mod_time_str = datetime.datetime.fromtimestamp(mod_time).strftime('%Y-%m-%d %H:%M:%S')
             
-            # Create a list of file options with descriptive names
+            # Create a descriptive name including file location
+            location = "main output" if ply_file.parent == OUTPUT_DIR else str(ply_file.parent.relative_to(OUTPUT_DIR))
+            desc_name = f"{ply_file.name} ({location}, modified {mod_time_str})"
+            file_options.append((desc_name, ply_file))
+        
+        # Let user select which file to view
+        selected_desc = st.selectbox(
+            "Select Point Cloud File", 
+            [desc for desc, _ in file_options],
+            index=0,
+            key="ply_file_selector"  # Add a unique key
+        )
+        
+        # Find the selected file
+        selected_ply = next(ply_file for desc, ply_file in file_options if desc == selected_desc)
+        
+        # Set results directory to where this file was found
+        results_dir = selected_ply.parent
+        st.success(f"Showing results from {results_dir.relative_to(OUTPUT_DIR) if results_dir != OUTPUT_DIR else 'main output directory'}")
+        
+        # Display the point cloud
+        st.subheader(f"Point Cloud: {selected_ply.name}")
+        display_point_cloud(str(selected_ply))
+    else:
+        st.warning("No PLY files found. Please run a reconstruction first.")
+        # Default to main output directory for any visualizations
+        results_dir = OUTPUT_DIR
+        
+        # Try to show any PLY files in the main output directory
+        all_ply_files = list(OUTPUT_DIR.glob("**/*.ply"))
+        if all_ply_files:
+            st.info(f"Found {len(all_ply_files)} PLY files in all directories.")
             file_options = []
-            for ply_file, mod_time in matching_ply_files:
-                # Format the modification time
-                mod_time_str = os.path.getmtime(ply_file)
-                from datetime import datetime
-                mod_time_str = datetime.fromtimestamp(mod_time).strftime('%Y-%m-%d %H:%M:%S')
-                
-                # Create a descriptive name including file location
-                location = "main output" if ply_file.parent == OUTPUT_DIR else str(ply_file.parent.relative_to(OUTPUT_DIR))
-                desc_name = f"{ply_file.name} ({location}, modified {mod_time_str})"
-                file_options.append((desc_name, ply_file))
+            for ply_file in all_ply_files:
+                mod_time = os.path.getmtime(ply_file)
+                mod_time_str = datetime.datetime.fromtimestamp(mod_time).strftime('%Y-%m-%d %H:%M:%S')
+                rel_path = ply_file.relative_to(OUTPUT_DIR.parent) if OUTPUT_DIR != ply_file.parent else os.path.basename(ply_file)
+                file_options.append((f"{rel_path} (modified {mod_time_str})", ply_file))
             
-            # Default to the newest file
-            default_index = 0
-            
-            # Let user select which file to view
             selected_desc = st.selectbox(
-                "Select Point Cloud File", 
+                "Select any available point cloud file", 
                 [desc for desc, _ in file_options],
-                index=default_index
+                key="fallback_ply_selector"  # Use a different key
             )
             
-            # Find the selected file
             selected_ply = next(ply_file for desc, ply_file in file_options if desc == selected_desc)
-            
-            # Set results directory to where this file was found
             results_dir = selected_ply.parent
-            st.success(f"Showing results from {results_dir.relative_to(OUTPUT_DIR) if results_dir != OUTPUT_DIR else 'main output directory'}")
             
-            # Display the point cloud
             st.subheader(f"Point Cloud: {selected_ply.name}")
             display_point_cloud(str(selected_ply))
-    else:
-        st.warning(f"No matching PLY files found for {expected_filename}. Please run a reconstruction first or switch to 'Browse All Files' mode.")
-        # Default to main output directory
-        results_dir = OUTPUT_DIR
     
     # Display disparity maps and other visualizations
     st.subheader("Visualizations")
@@ -544,18 +576,6 @@ elif page == "View Results":
                 display_image_grid(point_cloud_views, cols=2)
             else:
                 st.info("No point cloud views found")
-                
-        # with st.expander("Rectification", expanded=False):
-        #     if rectification:
-        #         display_image_grid(rectification, cols=2)
-        #     else:
-        #         st.info("No rectification visualizations found")
-                
-        # with st.expander("Other Visualizations", expanded=False):
-        #     if other_images:
-        #         display_image_grid(other_images, cols=2)
-        #     else:
-        #         st.info("No additional visualizations found")
 
 # ABOUT PAGE
 elif page == "About":
