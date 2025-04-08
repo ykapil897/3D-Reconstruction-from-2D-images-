@@ -58,7 +58,7 @@ Use our provided examples to see the reconstruction pipeline in action.
 
 # Create sidebar for navigation
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Home", "View Results", "About"])
+page = st.sidebar.radio("Go to", ["Home", "SFM", "View Results", "About"])
 
 # Define paths
 DATA_DIR = Path("Data")
@@ -342,6 +342,9 @@ if page == "Home":
             if success:
                 st.info("Go to 'View Results' to see the reconstruction output.")
 
+if page == "SFM":
+    st.markdown("[Go to SFM](https://3d-recon-from-2d.streamlit.app/)")
+
 # UPLOAD IMAGES PAGE
 # elif page == "Upload Images":
 #     st.header("Upload Your Own Stereo Images")
@@ -577,14 +580,16 @@ elif page == "About":
     5. **Surface Reconstruction** - Creates a 3D mesh from aligned point clouds
     
     ### Resources
-    - [GitHub Repository](https://github.com/yourusername/3D-Reconstruction-with-Uncalibrated-Stereo)
+    - [GitHub Repository](https://github.com/yudhisteer/3D-Reconstruction-with-Uncalibrated-Stereo)
     - [Paper: Multi-View Stereo: A Tutorial](https://www.nowpublishers.com/article/Details/CGV-023)
     """)
     
     # Project contributors
     st.subheader("Contributors")
     st.markdown("""
-    - Your Name
-    - Team Member 2
-    - Team Member 3
+    - Kapil Yadav
+    - Vivek Sapkal
+    - Arsewad Bhagwan
+    - Pratik Kumar
+    - Ankit Raj
     """)
